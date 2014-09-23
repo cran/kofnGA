@@ -1,1 +1,5 @@
-exportPattern("^[[:alpha:]]+")
+export(kofnGA)
+S3method(summary, GAsearch)
+S3method(print, GAsearch)
+S3method(print, summary.GAsearch)
+S3method(plot,GAsearch)

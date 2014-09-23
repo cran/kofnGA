@@ -10,8 +10,8 @@ integers 1:n, such that user-supplied function is minimized at that subset.
 \tabular{ll}{
 Package: \tab kofnGA\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2014-09-23\cr
+Version: \tab 1.1\cr
+Date: \tab 2015-02-03\cr
 License: \tab GPL-2\cr
 }
 
@@ -31,7 +31,7 @@ to make it easier to inspect the results.
 }
 \author{Mark A. Wolters <kramsretlow@gmail.com>}
 \references{
-Mark A. Wolters (2014, in press), \dQuote{A Genetic Algorithm for Selection of Fixed-Size Subsets}, with Application 
+Mark A. Wolters (2015, in press), \dQuote{A Genetic Algorithm for Selection of Fixed-Size Subsets}, with Application 
 to Design Problems,'' \emph{Journal of Statistical Software}, VOLUME, PAGES
 }
 \keyword{package}

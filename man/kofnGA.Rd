@@ -104,7 +104,9 @@ out <- kofnGA(n = 100, k = 4, OF = ObjFun, ngen = 50, some_numbers = Numbers)  #
 summary(out)
 plot(out)
 
-\dontrun{
+\donttest{
+# Note: the following two examples take approximately 30s each to run (on a 2014 laptop)
+
 #---Harder: find the 50x50 principal submatrix of a 500x500 matrix s.t. determinant is max---
 # Use eigenvalue decomposition and QR decomposition to make a matrix with known eigenvalues.
 n = 500                                         #-Dimension of the matrix.
