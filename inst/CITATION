@@ -1,0 +1,19 @@
+citHeader("To cite kofnGA in publications use:")
+
+citEntry(entry = "Article",
+  title        = "A Genetic Algorithm for Selection of Fixed-Size Subsets, With Application to Design Problems",
+  author       = personList(as.person("Mark A. Wolters")),
+  journal      = "Journal of Statistical Software",
+  year         = "2014 (in press)",
+  volume       = "TODO: VOLUME",
+  number       = "TODO: NUMBER",
+  url          = "TODO: URL",
+
+  textVersion  =
+  paste("Mark A. Wolters (2014, in press).",
+        "A Genetic Algorithm for Selection of Fixed-Size Subsets, With Application to Design Problems",
+        "Journal of Statistical Software TODO:VOLUME(NUMBER).",
+        "URL TODO:URL.")
+)
+
+
