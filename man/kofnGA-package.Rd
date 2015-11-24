@@ -29,11 +29,10 @@ results output by \code{kofnGA} are a list object assigned to the S3 class \code
 The package includes \code{summary}, \code{print}, and \code{plot} methods for this class 
 to make it easier to inspect the results.
 }
-\author{Mark A. Wolters <kramsretlow@gmail.com>}
-\references{
-Mark A. Wolters (2015, in press), \dQuote{A Genetic Algorithm for Selection of Fixed-Size Subsets}, with Application 
-to Design Problems,'' \emph{Journal of Statistical Software}, VOLUME, PAGES
-}
+\author{Mark A. Wolters <mark@mwolters.com>}
+\references{Mark A. Wolters (2015), \dQuote{A Genetic Algorithm for Selection of Fixed-Size Subsets, 
+            with Application to Design Problems,} \emph{Journal of Statistical Software}, 
+            volume 68, Code Snippet 1}
 \keyword{package}
 \examples{
 # See the examples in the kofnGA help.

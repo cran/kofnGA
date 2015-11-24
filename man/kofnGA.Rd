@@ -13,7 +13,8 @@ used to retain the best solutions from one generation to the next.
 }
 \usage{
 kofnGA(n, k, OF, popsize = 200, keepbest = floor(popsize/10), ngen = 500, 
-       tourneysize = max(ceiling(popsize/10), 2), mutprob = 0.01, initpop = NULL, ...)
+       tourneysize = max(ceiling(popsize/10), 2), mutprob = 0.01, initpop = NULL, 
+       verbose=0, ...)
 \method{plot}{GAsearch}(x, type=c("l","l"), lty=c(1,1), pch=c(-1,-1), col=c("blue", "red"), lwd=c(1,1), ...)
 \method{summary}{GAsearch}(object, ...)
 \method{print}{GAsearch}(x, ...)}
@@ -42,6 +43,10 @@ kofnGA(n, k, OF, popsize = 200, keepbest = floor(popsize/10), ngen = 500,
   \item{initpop}{A \code{popsize}-by-\code{k} matrix of starting solutions.  The final populations from  
   one GA search can be passed as the starting point of the next search.  Possibly useful if using this 
   function in an adaptive, iterative, or parallel scheme (see examples).
+  }
+  \item{verbose}{An integer controlling the display of progress during search.  If \code{verbose} takes 
+  positive value \code{v}, then the iteration number and best objective function value are displayed at the
+  console every \code{v} generations. Otherwise nothing is displayed. Default is zero (no display).
   }
   \item{object, x}{An object of class \code{GAsearch}, as returned by \code{kofnGA}.
   }
@@ -75,7 +80,7 @@ kofnGA(n, k, OF, popsize = 200, keepbest = floor(popsize/10), ngen = 500,
   The function returns a list of class "GAsearch" with the following elements:
   \item{bestsol}{A vector of length \code{k} holding the best solution found.}
   \item{bestobj}{The objective function value for the best solution found.}
- \item{pop}{A \code{popsize}-by-\code{k} matrix holding the final population, row-sorted 
+  \item{pop}{A \code{popsize}-by-\code{k} matrix holding the final population, row-sorted 
             in order of increasing objective function. Each row is an index vector 
             representing one solution.}
   \item{obj}{The objective function values corresponding to each row of pop.}
@@ -90,8 +95,9 @@ kofnGA(n, k, OF, popsize = 200, keepbest = floor(popsize/10), ngen = 500,
                  best fitness in the population, most individuals are likely quite similar 
                  to each other.}
 }
-\references{Mark A. Wolters (2014, in press), \dQuote{A Genetic Algorithm for Selection of Fixed-Size Subsets}, 
-            with Application to Design Problems,'' \emph{Journal of Statistical Software}, VOLUME, PAGES}
+\references{Mark A. Wolters (2015), \dQuote{A Genetic Algorithm for Selection of Fixed-Size Subsets, 
+            with Application to Design Problems,} \emph{Journal of Statistical Software}, 
+            volume 68, Code Snippet 1}
 \author{Mark A. Wolters <mark@mwolters.com>}
 \examples{
 #---Find the four smallest numbers in a random vector of 100 uniforms---

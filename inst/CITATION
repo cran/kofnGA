@@ -1,19 +1,20 @@
-citHeader("To cite kofnGA in publications use:")
+bibentry(bibtype = "Article",
+  title        = "A Genetic Algorithm for Selection of Fixed-Size Subsets with Application to Design Problems",
+  author       = person(given = c("Mark", "A."),
+                        family = "Wolters",
+                        email = "mwolters@fudan.edu.cn"),
+  journal      = "Journal of Statistical Software, Code Snippets",
+  year         = "2015",
+  volume       = "68",
+  number       = "1",
+  pages        = "1--18",
+  doi          = "10.18637/jss.v068.c01",
 
-citEntry(entry = "Article",
-  title        = "A Genetic Algorithm for Selection of Fixed-Size Subsets, With Application to Design Problems",
-  author       = personList(as.person("Mark A. Wolters")),
-  journal      = "Journal of Statistical Software",
-  year         = "2015 (in press)",
-  volume       = "TODO: VOLUME",
-  number       = "TODO: NUMBER",
-  url          = "http://cran.r-project.org/web/packages/kofnGA/index.html",
-
+  header       = "To cite kofnGA in publications use:",
   textVersion  =
-  paste("Mark A. Wolters (2014, in press).",
-        "A Genetic Algorithm for Selection of Fixed-Size Subsets, With Application to Design Problems",
-        "Journal of Statistical Software TODO:VOLUME(NUMBER).",
-        "URL TODO:URL.")
+  paste("Mark A. Wolters (2015).",
+        "A Genetic Algorithm for Selection of Fixed-Size Subsets with Application to Design Problems.",
+        "Journal of Statistical Software, 68(1), 1-18.",
+        "doi:10.18637/jss.v068.c01")
 )
-
 

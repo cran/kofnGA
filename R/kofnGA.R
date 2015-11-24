@@ -1,5 +1,6 @@
 kofnGA <- function(n,k,OF,popsize=200,keepbest=floor(popsize/10),ngen=500,
-                   tourneysize=max(ceiling(popsize/10),2),mutprob=0.01,initpop=NULL, ...) {
+                   tourneysize=max(ceiling(popsize/10),2),mutprob=0.01,initpop=NULL, 
+                   verbose=0, ...) {
 # Genetic algorithm to do subset selection:  choose a subset of a fixed size k from the 
 # integers 1:n, such that function OF() is minimized at that subset.  The selection step is
 # done by tournament selection based on ranks.
@@ -19,6 +20,9 @@ kofnGA <- function(n,k,OF,popsize=200,keepbest=floor(popsize/10),ngen=500,
 #               An index chosen for mutation simply jumps to any other unused index at random.
 #   initpop     A popsize-by-k matrix of starting solutions.  Possibly useful if using this 
 #               function in an adaptive, iterative, or parallel scheme.
+#   verbose     An integer controlling the display of intermediate results during search. If 0 
+#               (default), nothing is shown.  If verbose=c, the iteration number and best objective
+#               value are displayed every c iterations.
 #   ...         Used to pass other arguments to OF(subset,...) as necessary.
 #
 # Output is a list with the following elements:
@@ -39,11 +43,12 @@ kofnGA <- function(n,k,OF,popsize=200,keepbest=floor(popsize/10),ngen=500,
 stopifnot(n %% 1 == 0, n > 0, n >= k,
           k %% 1 == 0, k > 0, 
           popsize %% 1 == 0, popsize >= 2, popsize > keepbest, popsize > tourneysize,
-          keepbest %% 1 == 0, keepbest >= 1,
+          keepbest %% 1 == 0, keepbest >= 0,
           ngen %% 1 == 0, ngen >= 1,
           tourneysize %% 1 == 0, tourneysize >= 2,
           mutprob >= 0, mutprob <= 1,
-          all(dim(initpop) == c(popsize,k)))
+          all(dim(initpop) == c(popsize,k)),
+          verbose %% 1 == 0)
   
 ##=== Create needed objects ====================================================================##
 indices <- 1:n                                   #-The set of possible objects to choose from.
@@ -140,6 +145,11 @@ for (gen in 1:ngen) {
     old$obj[gen+1] <- min(fitness.old)
     old$avg[gen+1] <- mean(fitness.old)
     
+    # Give output to console, if requested--------------------------------------------------------
+    if (verbose>0 && gen%%verbose==0) {
+      cat("Finished iteration ", gen, ". Best OF value = ", old$obj[gen+1], "\n")
+    }
+    
 }
 
 ##=== Package the outputs ======================================================================##
@@ -157,7 +167,7 @@ for (i in 1:popsize) {
 # Return the objfun values for the final population.
 out$obj <- fitness.old[ord]
 # Return the best solution found, and its objfun value.
-alltimebest <- which(old$obj==min(old$obj))
+alltimebest <- which(old$obj==min(old$obj,na.rm=TRUE))
 alltimebest <- tail(alltimebest,1)               #-In case multiple bests, take last one.
 out$bestsol <- out$old$best[alltimebest,]
 out$bestobj <- out$old$obj[alltimebest]
